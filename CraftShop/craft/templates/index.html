@@ -11,8 +11,11 @@
   {% endblock %}
 </head>
 <body>
-  <h1 class="text-center">CraftShop</h1>
-  <h1>{{date.day}}-{{date.month}}-{{date.year}}</h1>
+  <div class="container-fluid">
+    {% include "navbar.html" %}
+    <h1 class="text-center">CraftShop</h1>
+    <h1>{{date.day}}-{{date.month}}-{{date.year}}</h1>
+  </div>
 
 
 
