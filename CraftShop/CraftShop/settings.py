@@ -37,7 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'craft.apps.CraftConfig'
+    'craft.apps.CraftConfig',
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [
