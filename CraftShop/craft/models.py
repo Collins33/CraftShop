@@ -11,6 +11,10 @@ class Artist(models.Model):
     def __str__(self):
         return self.first_name
 
+    #save method
+    def save_artist(self):
+        self.save()
+
 
 
 

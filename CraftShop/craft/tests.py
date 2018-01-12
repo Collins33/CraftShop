@@ -11,3 +11,9 @@ class ArtistTestClass(TestCase):
     #test instance
     def test_instance(self):
         self.assertTrue(isinstance(self.artist,Artist))
+
+    #test for the save method
+    def test_save_method(self):
+        self.artist.save_artist()
+        artists=Artist.objects.all()#returns a list with artists
+        self.assertTrue(len(artists)>0)#because we saved the list should have a length>0    
