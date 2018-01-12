@@ -46,5 +46,11 @@ class Craft(models.Model):
         allCraft=cls.objects.all()
         return allCraft
 
+    #filter method
+    @classmethod
+    def search_by_name(cls,search_term):
+        craft=cls.objects.filter(craft_name__icontains=search_term)
+        return craft
+
     def __str__(self):
         return self.craft_name

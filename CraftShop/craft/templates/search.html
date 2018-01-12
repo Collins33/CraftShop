@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CraftShop</title>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    {% if craft %}
+    <h1 class="text-center">Found {{craft|length}} of searched term {{message}}</h1>
+    {% else %}
+    <h1 class="text-center">Found 0 items of {{message}}</h1>
+    {% endif %}
+  </div>
+
+
+  <div class="row">
+    {%if craft%}
+   {%for craft in craft%}
+   <div class="col-sm-6 col-md-3">
+            <h2>{{craft.craft_name}}</h2>
+            <h2>{{craft.craft_price}}</h2>
+    </div>
+   {%endfor%}
+    {%endif%}
+  </div>
+
+</div>
+</body>
+</html>
