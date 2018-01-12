@@ -47,3 +47,7 @@ class CraftTestClass(TestCase):
     def test_get_crafts_today(self):
         today_craft=Craft.todayCraft()
         self.assertTrue(len(today_craft)>0)
+
+    def test_get_crafts_all(self):
+        all_craft=Craft.allCrafts()
+        self.assertTrue(len(all_craft)>0)    

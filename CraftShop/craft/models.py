@@ -40,3 +40,11 @@ class Craft(models.Model):
         today=dt.date.today()
         craft=cls.objects.filter(post_date__date = today)
         return craft
+
+    @classmethod
+    def allCrafts(cls):
+        allCraft=cls.objects.all()
+        return allCraft
+
+    def __str__(self):
+        return self.craft_name
