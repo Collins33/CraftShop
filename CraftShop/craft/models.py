@@ -32,3 +32,11 @@ class Craft(models.Model):
     artist=models.ForeignKey(Artist,on_delete=models.CASCADE)
     category=models.ManyToManyField(categories)
     post_date = models.DateTimeField(auto_now_add=True)
+
+
+    #get crafts from today
+    @classmethod
+    def todayCraft(cls):
+        today=dt.date.today()
+        craft=cls.objects.filter(post_date__date = today)
+        return craft
