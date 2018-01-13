@@ -9,13 +9,15 @@ def welcome(request):
     crafts=Craft.todayCraft()
     return render(request, 'index.html',{'date':date, 'crafts':crafts})
 
+
+
 def search_result(request):
-    if 'craft' in request.GET and request.GET['craft']:
-        search_term=request.GET.get('craft')
+    if "craft" in request.GET and request.GET["craft"]:
+        search_term=request.GET.get("craft")
         search_craft=Craft.search_by_name(search_term)
         message=f"{search_term}"
 
-        return render(request, 'search.html', {"message":message,"crafts":search_craft})
+        return render(request, 'search.html', {"message":message, "crafts":search_craft})
 
     else:
         message="YOU HAVE NOT SEARCHED FOR ANYTHING"

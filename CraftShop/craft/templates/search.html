@@ -1,7 +1,5 @@
 {% load bootstrap3 %}
 {% load static %}
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,17 +19,17 @@
     {% include "navbar.html" %}
   <div class="row">
 
-    {% if craft %}
-    <h1 class="text-center">Found {{craft|length}} of searched term {{message}}</h1>
+    {%if crafts%}
+    <h1 class="text-center">Found {{crafts|length}} of searched term {{message}}</h1>
     {% else %}
     <h1 class="text-center">Found 0 items of {{message}}</h1>
-    {% endif %}
+    {%endif%}
   </div>
 
 
   <div class="row">
-    {%if craft%}
-   {%for craft in craft%}
+    {%if crafts%}
+   {%for craft in crafts%}
    <div class="col-sm-6 col-md-3">
             <h2>{{craft.craft_name}}</h2>
             <h2>{{craft.craft_price}}</h2>
