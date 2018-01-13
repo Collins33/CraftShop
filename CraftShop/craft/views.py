@@ -22,3 +22,13 @@ def search_result(request):
     else:
         message="YOU HAVE NOT SEARCHED FOR ANYTHING"
         return render(request, 'search.html', {"message":message})
+
+
+
+def craft(request,craft_id):
+    try:
+        craft=Craft.objects.get(id=craft_id)
+    except DoesNotExist:
+        raise Http404()
+
+    return render(request,"craft.html",{"craft":craft})        
