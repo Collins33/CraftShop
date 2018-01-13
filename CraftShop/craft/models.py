@@ -32,6 +32,7 @@ class Craft(models.Model):
     artist=models.ForeignKey(Artist,on_delete=models.CASCADE)
     category=models.ManyToManyField(categories)
     post_date = models.DateTimeField(auto_now_add=True)
+    craft_image=models.ImageField(upload_to='crafts/',blank=True)
 
 
     #get crafts from today
