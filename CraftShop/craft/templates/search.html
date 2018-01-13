@@ -30,10 +30,13 @@
   <div class="row">
     {%if crafts%}
    {%for craft in crafts%}
-   <div class="col-sm-6 col-md-3">
-            <h2>{{craft.craft_name}}</h2>
-            <h2>{{craft.craft_price}}</h2>
-    </div>
+   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 well craftrow">
+
+       <h1 class="text-center"> {{ craft.craft_name}} </h1>
+       <img src="{{craft.craft_image.url}}" class="img-responsive" alt="Image">
+       <h1 class="text-center"> {{ craft.craft_price}} </h1>
+
+   </div>
    {%endfor%}
     {%endif%}
   </div>
