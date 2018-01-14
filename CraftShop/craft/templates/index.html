@@ -33,12 +33,14 @@
     </div>
 
     {% for craft in crafts %}
+    <a href="{%url 'crafts' craft.id%}">
     <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 well craftrow">
 
-        <a href="{%url 'crafts' craft.id%}"><h1 class="text-center"> {{ craft.craft_name}} </h1></a>
+        <h1 class="text-center"> {{ craft.craft_name}} </h1>
         <img src="{{craft.craft_image.url}}" class="img-responsive" alt="Image">
 
     </div>
+    </a>
     {% empty %}
     <div class="row">
      <h1 class="text-center">THERE ARE NO CRAFTS TODAY</h1>
