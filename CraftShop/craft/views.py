@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime as dt
-from .models import Artist,categories,Craft
+from .models import Artist,categories,Craft,NewsLetterSubscription
 from .forms import NewsLetterForm
+from django.http import HttpResponse,Http404,HttpResponseRedirect
 
 # Create your views here.
 def welcome(request):
@@ -12,7 +13,12 @@ def welcome(request):
         #CHECK IF REQUEST IS A POST REQUEST
         form=NewsLetterForm(request.POST)
         if form.is_valid():
-            print("valid")
+            name=form.cleaned_data['your_name']
+            email=form.cleaned_data['email']
+            recipient=NewsLetterSubscription(name=name,email=email)
+            recipient.save()
+            HttpResponseRedirect('welcome')
+
     else:
         form=NewsLetterForm()
 

@@ -1,6 +1,7 @@
 from django.db import models
 import datetime as dt
 
+
 # Create your models here.
 class Artist(models.Model):
     first_name=models.CharField(max_length=30)
@@ -58,4 +59,4 @@ class Craft(models.Model):
 
 class NewsLetterSubscription(models.Model):
     name=models.CharField(max_length=30)
-    email=models.EmailField()    
+    email=models.EmailField()
