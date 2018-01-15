@@ -31,10 +31,10 @@
     {%if crafts%}
    {%for craft in crafts%}
    <a href="{%url 'crafts' craft.id%}">
-   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 well craftrow">
+   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  craftrow">
 
        <h1 class="text-center"> {{ craft.craft_name}} </h1>
-       <img src="{{craft.craft_image.url}}" class="img-responsive" alt="Image">
+       <img src="{{craft.craft_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
        <h1 class="text-center"> {{ craft.craft_price}} </h1>
 
    </div>
