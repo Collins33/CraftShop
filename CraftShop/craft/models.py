@@ -55,3 +55,7 @@ class Craft(models.Model):
 
     def __str__(self):
         return self.craft_name
+
+class NewsLetterSubscription(models.Model):
+    name=models.CharField(max_length=30)
+    email=models.EmailField()    
