@@ -4,6 +4,7 @@ import datetime as dt
 from .models import Artist,categories,Craft,NewsLetterSubscription
 from .forms import NewsLetterForm
 from django.http import HttpResponse,Http404,HttpResponseRedirect
+from .email import sendEmail
 
 # Create your views here.
 def welcome(request):
@@ -17,6 +18,7 @@ def welcome(request):
             email=form.cleaned_data['email']
             recipient=NewsLetterSubscription(name=name,email=email)
             recipient.save()
+            sendEmail(name,email)
             HttpResponseRedirect('welcome')
 
     else:
