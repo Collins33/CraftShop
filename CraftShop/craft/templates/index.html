@@ -1,4 +1,5 @@
 {% load bootstrap3 %}
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -47,15 +48,15 @@
     {% empty %}
     <div class="row">
      <h1 class="text-center">THERE ARE NO CRAFTS TODAY</h1>
-     <a href="{%url 'allCraft'%}"><button class="btn btn-info">SEE MORE CRAFTS</button></a>
+     <a href="{%url 'allCraft'%}"><button class="btn btn-info" style="margin-left:45%">SEE MORE CRAFTS</button></a>
     </div>
     {% endfor %}
 
 
 
 
-    <div class="row" style="margin:10px">
-      <h1 class="text-center">SUBSCRIPTION FORM</h1>
+    <div class="row subsription" style="margin:200px">
+      <h1 class="text-center subscribe">SUBSCRIPTION FORM</h1>
       <form action="{%url "welcome"%}" method="POST">
        {%csrf_token%}
        {%bootstrap_form form layout="inline"%}

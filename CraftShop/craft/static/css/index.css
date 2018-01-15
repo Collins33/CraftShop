@@ -10,7 +10,7 @@ h1{
   font-size: 40px;
 }
 .welcome{
-  height: 600px;
+  height: 500px;
   background: url("http://wallpapercave.com/wp/GBBSLlA.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -38,6 +38,17 @@ h2{
 }
 .productpic{
   height: 100px;
+}
+.subsription{
+
+  background: url("https://www.wallpapersbrowse.com/images/2a/2ao1a51.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment:scroll;
+}
+.subscribe{
+  font-size: 30px;
 }
 /*div.polaroid {
   width: 80%;
