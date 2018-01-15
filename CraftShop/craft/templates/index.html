@@ -47,7 +47,7 @@
     {% empty %}
     <div class="row">
      <h1 class="text-center">THERE ARE NO CRAFTS TODAY</h1>
-     <button class="btn btn-info">SEE MORE CRAFTS</button>
+     <a href="{%url 'allCraft'%}"><button class="btn btn-info">SEE MORE CRAFTS</button></a>
     </div>
     {% endfor %}
 

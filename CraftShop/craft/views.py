@@ -31,4 +31,8 @@ def craft(request,craft_id):
     except DoesNotExist:
         raise Http404()
 
-    return render(request,"craft.html",{"craft":craft})        
+    return render(request,"craft.html",{"craft":craft})
+
+def all_craft(request):
+    craft=Craft.allCrafts()
+    return render(request, 'showcase.html',{"crafts":craft})        
