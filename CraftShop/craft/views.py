@@ -2,12 +2,22 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime as dt
 from .models import Artist,categories,Craft
+from .forms import NewsLetterForm
 
 # Create your views here.
 def welcome(request):
     date=dt.date.today()
     crafts=Craft.todayCraft()
-    return render(request, 'index.html',{'date':date, 'crafts':crafts})
+    if request.method == 'POST':
+        #CHECK IF REQUEST IS A POST REQUEST
+        form=NewsLetterForm(request.POST)
+        if form.is_valid():
+            print("valid")
+    else:
+        form=NewsLetterForm()
+
+
+    return render(request, 'index.html',{'date':date, 'crafts':crafts,"form":form})
 
 
 
@@ -35,4 +45,4 @@ def craft(request,craft_id):
 
 def all_craft(request):
     craft=Craft.allCrafts()
-    return render(request, 'showcase.html',{"crafts":craft})        
+    return render(request, 'showcase.html',{"crafts":craft})

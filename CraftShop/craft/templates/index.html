@@ -51,6 +51,18 @@
     </div>
     {% endfor %}
 
+
+
+
+    <div class="row" style="margin:10px">
+      <h1 class="text-center">SUBSCRIPTION FORM</h1>
+      <form action="{%url "welcome"%}" method="POST">
+       {%csrf_token%}
+       {%bootstrap_form form layout="inline"%}
+       <input type="submit" value="Subscribe" class="btn btn-info">
+      </form>
+
+    </div>
   </div>
 
 
