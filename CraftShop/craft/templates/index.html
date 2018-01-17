@@ -18,21 +18,17 @@
 </head>
 <body>
   <div class="container-fluid">
+    <div class="row">
+      {%include "searchBar.html" %}
+    </div>
     <div class="row welcome">
+
     {% include "navbar.html" %}
     <h1 class="intro">Create Art</h1>
     <h1 class="intro">Sell Art</h1>
     <h1 class="intro">Showcase Art</h1>
     </div>
-    <div class="row  well">
-      <!-- search form -->
-      <form class="form-inline searchRow" role="search" action="{%url 'search_result'%}">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search Craft" name="craft">
-        </div>
-        <button class="btn btn-info" type="submit">SEARCH</button>
-      </form>
-    </div>
+
 
     {% for craft in crafts %}
     <h1 class="text-center">WHATS NEW AND TRENDING</h1>
