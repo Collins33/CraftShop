@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import datetime as dt
 from .models import categories,Craft,NewsLetterSubscription
-from .forms import NewsLetterForm
+from .forms import NewsLetterForm,NewCraftForm
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from .email import sendEmail
 from django.contrib.auth.decorators import login_required
@@ -56,3 +56,17 @@ def craft(request,craft_id):
 def all_craft(request):
     craft=Craft.allCrafts()
     return render(request, 'showcase.html',{"crafts":craft})
+
+
+@login_required(login_url="/accounts/login/")
+def new_craft(request):
+    current_user=request.user
+    if request.method == "POST":
+        form=NewCraftForm(request.POST,request.FILES)
+        if form.is_valid():
+            craft=form.save(commit=False)
+            craft.artist=current_user
+            craft.save()
+    else:
+        form=NewCraftForm()
+    return render(request,"newCraft.html",{"form":form})    
