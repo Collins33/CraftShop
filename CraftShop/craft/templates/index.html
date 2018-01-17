@@ -1,5 +1,4 @@
 {% load bootstrap3 %}
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -15,21 +14,38 @@
        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
        <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
   {% endblock %}
+
+
+  <style>
+  body{
+    margin: 0;
+    padding:0;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+  .intro{
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    color: black;
+  }
+  </style>
+
+
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      {%include "searchBar.html" %}
-    </div>
+  <div class="container-fluid" style="padding:0px">
+    <!-- <div class="row">
+
+    </div> -->
     <div class="row welcome">
-
     {% include "navbar.html" %}
-    <h1 class="intro">Create Art</h1>
-    <h1 class="intro">Sell Art</h1>
-    <h1 class="intro">Showcase Art</h1>
+    {%include "searchBar.html" %}
+    <h1 class="intro text-center">Create Art</h1>
+    <h1 class="intro text-center">Sell Art</h1>
+    <h1 class="intro text-center">Showcase Art</h1>
     </div>
 
-
+    <div class="row">
     {% for craft in crafts %}
     <h1 class="text-center">WHATS NEW AND TRENDING</h1>
     <a href="{%url 'crafts' craft.id%}">
@@ -41,6 +57,7 @@
 
     </div>
     </a>
+      </div>
     {% empty %}
     <div class="row">
      <h1 class="text-center">THERE ARE NO CRAFTS TODAY</h1>
@@ -48,25 +65,18 @@
     </div>
     {% endfor %}
 
-
-
-
-
-    <div class="row subsription" style="margin-top:500px">
-      <h1 class="text-center subscribe">SUBSCRIPTION  FORM</h1>
-      <form action="{%url "welcome"%}" method="POST">
-       {%csrf_token%}
-       {%bootstrap_form form layout="inline"%}
-       <input type="submit" value="Subscribe" class="btn btn-info">
-      </form>
+    <div class="row" style="margin-top:100px">
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <form action="{%url "welcome"%}" method="POST">
+         {%csrf_token%}
+         {%bootstrap_form form layout="inline"%}
+         <input type="submit" value="Subscribe" class="btn btn-info">
+        </form>
+      </div>
+      <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
     </div>
   </div>
-
-
-
-
-
-
   {% block scripts %}
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
        {% bootstrap_javascript %}
