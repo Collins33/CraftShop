@@ -1,6 +1,7 @@
 from django.db import models
 import datetime as dt
 from django.contrib.auth.models import User
+from tinymce.models import HTMLField
 
 # Create your models here.
 # class Artist(models.Model):
@@ -29,7 +30,7 @@ class categories(models.Model):
 class Craft(models.Model):
     craft_name=models.CharField(max_length=30)
     craft_price=models.CharField(max_length=10)
-    craft_description=models.CharField(max_length=200)
+    craft_description=HTMLField()
     artist=models.ForeignKey(User,on_delete=models.CASCADE)
     category=models.ManyToManyField(categories)
     post_date = models.DateTimeField(auto_now_add=True)
