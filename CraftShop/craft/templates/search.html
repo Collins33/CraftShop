@@ -1,0 +1,56 @@
+{% load bootstrap3 %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>CraftShop</title>
+  {%block styles%}
+   {%bootstrap_css%}
+       <link rel="stylesheet" href="{% static 'css/index.css' %}">
+       <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+  {% endblock %}
+</head>
+<body>
+<div class="container-fluid">
+  
+
+    {% include "navbar.html" %}
+  <div class="row">
+
+    {%if crafts%}
+    <h1 class="text-center">Found {{crafts|length}} of searched term {{message}}</h1>
+    {% else %}
+    <h1 class="text-center">Found 0 items of {{message}}</h1>
+    {%endif%}
+  </div>
+
+
+  <div class="row">
+    {%if crafts%}
+   {%for craft in crafts%}
+   <a href="{%url 'crafts' craft.id%}">
+   <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4  craftrow">
+
+       <h1 class="text-center"> {{ craft.craft_name}} </h1>
+       <img src="{{craft.craft_image.url}}" class="img-responsive img-thumbnail img-rounded" alt="Image" style="height:300px">
+       <h1 class="text-center"> {{ craft.craft_price}} </h1>
+
+   </div>
+ </a>
+   {%endfor%}
+    {%endif%}
+  </div>
+
+</div>
+
+
+{% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+     {% bootstrap_javascript %}
+{% endblock %}
+</body>
+</html>
