@@ -1,10 +1,19 @@
+{% load bootstrap3 %}
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  {%block styles%}
+   {%bootstrap_css%}
+       <link rel="stylesheet" href="{% static 'css/index.css' %}">
+       <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+  {% endblock %}
 </head>
 <body>
   <nav class="navbar navbar-inverse">
@@ -18,7 +27,37 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Join</a></li>
       </ul>
+
+      <div class="col-sm-6 col-md-6">
+            {% if user.is_authenticated %}
+            <ul>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                          <span class="caret"></span>
+                      </a>
+                <ul class="dropdown-menu" role="menu">
+                  <li>
+                    <a href="/accounts/password/change">Change Password</a>
+                  </li>
+                  <li>
+                    <a href="/logout">Logout</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            {% else %}
+            <li>
+              <a class='btn btn-default' href="/accounts/login">Login</a>
+            </li>
+
+            {% endif %}
+          </div>
     </div>
   </nav>
+
+  {% block scripts %}
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       {% bootstrap_javascript %}
+  {% endblock %}
 </body>
 </html>
