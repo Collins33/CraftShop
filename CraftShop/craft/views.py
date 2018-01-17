@@ -5,6 +5,7 @@ from .models import Artist,categories,Craft,NewsLetterSubscription
 from .forms import NewsLetterForm
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from .email import sendEmail
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def welcome(request):
@@ -51,6 +52,7 @@ def craft(request,craft_id):
 
     return render(request,"craft.html",{"craft":craft})
 
+@login_required(login_url='/accounts/login/')
 def all_craft(request):
     craft=Craft.allCrafts()
     return render(request, 'showcase.html',{"crafts":craft})
