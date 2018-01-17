@@ -51,14 +51,14 @@
 
 
 
-    <div class="row subsription" style="margin:200px">
+
+    <div class="row subsription" style="margin-top:500px">
       <h1 class="text-center subscribe">SUBSCRIPTION  FORM</h1>
       <form action="{%url "welcome"%}" method="POST">
        {%csrf_token%}
        {%bootstrap_form form layout="inline"%}
        <input type="submit" value="Subscribe" class="btn btn-info">
       </form>
-
     </div>
   </div>
 
