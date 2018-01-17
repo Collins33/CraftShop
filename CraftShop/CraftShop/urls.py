@@ -22,4 +22,5 @@ urlpatterns = [
     path('',include('craft.url')),
     path('accounts/',include('registration.backends.simple.urls')),
     path('logout/', views.logout, {"next_page": '/'})
+
 ]
