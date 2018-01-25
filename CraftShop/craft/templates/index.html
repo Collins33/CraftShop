@@ -9,7 +9,7 @@
   <title>CraftShop</title>
   {%block styles%}
    {%bootstrap_css%}
-       <link rel="stylesheet" href="{% static 'css/index.css' %}">
+       <!-- <link rel="stylesheet" href="{% static 'css/index.css' %}"> -->
        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
        <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
@@ -28,6 +28,10 @@
     font-size: 50px;
     color: black;
   }
+  h1{
+    color:black;
+    font-size: 20px;
+  }
   </style>
 
 
@@ -43,6 +47,31 @@
     <h1 class="intro text-center">Create Art</h1>
     <h1 class="intro text-center">Sell Art</h1>
     <h1 class="intro text-center">Showcase Art</h1>
+    
+    <div class="col-sm-12 col-md-12 text-center">
+          {% if user.is_authenticated %}
+          <ul>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
+                        <span class="caret"></span>
+                    </a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="/accounts/password/change">CHANGE PASSWORD</a>
+                </li>
+                <li>
+                  <a href="/logout">LOG-OUT</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          {% else %}
+          <li>
+            <a class='btn btn-default' href="/accounts/login">GET STARTED</a>
+          </li>
+
+          {% endif %}
+        </div>
     </div>
 
     <div class="row">
