@@ -15,6 +15,17 @@
        <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
   {% endblock %}
 </head>
+<style>
+.companyName{
+  font-family: 'Poppins', sans-serif;
+  font-size: 40px;
+  color: black;
+}
+.navbarText{
+  font-family: 'Playfair Display', serif;
+  color: black;
+}
+</style>
 <body>
   <nav class="navbar">
     <div class="container">
@@ -22,12 +33,12 @@
         <a class="navbar-brand companyName" href="{%url 'welcome' %}">CraftShop</a>
       </div>
       <ul class="nav navbar-nav">
-        <li><a href="{%url 'allCraft'%}">ShowCase</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="{%url 'newCraft'%}">Get Started</a></li>
+        <li class="navbarText"><a href="{%url 'allCraft'%}">ShowCase</a></li>
+        <li class="navbarText"><a href="#">About</a></li>
+        <li class="navbarText"><a href="{%url 'newCraft'%}">Get Started</a></li>
       </ul>
 
-    
+
     </div>
   </nav>
 

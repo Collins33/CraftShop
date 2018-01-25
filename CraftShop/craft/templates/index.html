@@ -32,6 +32,21 @@
     color:black;
     font-size: 20px;
   }
+  h3{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    color: black;
+    padding: 50px;
+  }
+  .instructions{
+    height: 200px;
+    background: #136a8a;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #267871, #136a8a);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    margin-left:100px;
+    margin-right:100px;
+  }
+
   </style>
 
 
@@ -44,34 +59,9 @@
     <div class="row welcome">
     {% include "navbar.html" %}
     {%include "searchBar.html" %}
-    <h1 class="intro text-center">Create Art</h1>
-    <h1 class="intro text-center">Sell Art</h1>
-    <h1 class="intro text-center">Showcase Art</h1>
-    
-    <div class="col-sm-12 col-md-12 text-center">
-          {% if user.is_authenticated %}
-          <ul>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button" aria-expanded="false">Account
-                        <span class="caret"></span>
-                    </a>
-              <ul class="dropdown-menu" role="menu">
-                <li>
-                  <a href="/accounts/password/change">CHANGE PASSWORD</a>
-                </li>
-                <li>
-                  <a href="/logout">LOG-OUT</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          {% else %}
-          <li>
-            <a class='btn btn-default' href="/accounts/login">GET STARTED</a>
-          </li>
+    <h1 class="intro text-center">CREATE ART | SELL ART | BUY ART</h1>
 
-          {% endif %}
-        </div>
+    
     </div>
 
     <div class="row">
@@ -88,11 +78,42 @@
     </a>
       </div>
     {% empty %}
-    <div class="row">
-     <h1 class="text-center">THERE ARE NO CRAFTS TODAY</h1>
+    <div class="row ">
+     <h3 class="text-center">THERE ARE NO CRAFTS TODAY</h3>
      <a href="{%url 'allCraft'%}"><button class="btn btn-info" style="margin-left:45%">SEE MORE CRAFTS</button></a>
     </div>
     {% endfor %}
+   <div class="row instructions">
+   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+     <h3 class="text-center">
+       CREATE YOUR ART AND CRAFT
+     </h3>
+
+   </div>
+   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+     <h3 class="text-center">
+       SHOWCASE YOUR CRAFTS
+     </h3>
+   </div>
+   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+     <h3 class="text-center">
+       SELL YOUR CRAFTS
+     </h3>
+   </div>
+   <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+     <h3 class="text-center">
+       MAKE A LIVING
+     </h3>
+   </div>
+   </div>
+
+
+
+
+
+
+
+
 
     <div class="row" style="margin-top:100px">
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
