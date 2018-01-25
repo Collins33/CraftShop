@@ -3,6 +3,7 @@ import datetime as dt
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 
+
 # Create your models here.
 # class Artist(models.Model):
 #     first_name=models.CharField(max_length=30)
@@ -29,10 +30,13 @@ class categories(models.Model):
 
 class Craft(models.Model):
     craft_name=models.CharField(max_length=30)
-    craft_price=models.CharField(max_length=10)
+    craft_price=models.DecimalField(max_digits=10,decimal_places=2)
     craft_description=HTMLField()
+    craft_slug=models.SlugField(max_length=200,unique=True)
+    craft_stock=models.PositiveIntegerField(default=True)
+    available = models.BooleanField(default=True)
     artist=models.ForeignKey(User,on_delete=models.CASCADE)
-    category=models.ManyToManyField(categories)
+    category=models.ForeignKey(categories,on_delete=models.CASCADE,default=True)
     post_date = models.DateTimeField(auto_now_add=True)
     craft_image=models.ImageField(upload_to='crafts/',blank=True)
 
