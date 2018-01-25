@@ -36,7 +36,7 @@ class Craft(models.Model):
     craft_stock=models.PositiveIntegerField(default=True)
     available = models.BooleanField(default=True)
     artist=models.ForeignKey(User,on_delete=models.CASCADE)
-    category=models.ForeignKey(categories,on_delete=models.CASCADE,default=True)
+    category=models.ManyToManyField(categories)
     post_date = models.DateTimeField(auto_now_add=True)
     craft_image=models.ImageField(upload_to='crafts/',blank=True)
 
