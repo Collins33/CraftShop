@@ -121,6 +121,9 @@ USE_L10N = True
 
 USE_TZ = True
 
+#key to add cart to session
+CART_SESSION_ID = 'cart'
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
