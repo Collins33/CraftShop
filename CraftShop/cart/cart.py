@@ -66,4 +66,8 @@ class Craft(object):
 
     #get the total number of items in the cart
     def __len__(self):
-        return sum(item['quantity'] for item in self.cart.values())    
+        return sum(item['quantity'] for item in self.cart.values())
+
+    #calculate the total cost of items in the cart
+    def get_total_price(self):
+        return sum(Decimal(item['price']) *item['quantity'] for item in self.cart.values())   
