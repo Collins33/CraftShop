@@ -13,3 +13,27 @@ class Craft(object):
             #if the cart is not in the session,add it as an empty dictionary
             cart=self.session[settings.CART_SESSION_ID]={}
         self.cart=cart
+
+    #this method adds to cart and saves cart
+    def add(self,craft,quantity=1,update_quantity=False):
+        #get the craft id
+        craft_id=str(craft.id)
+        #use craft id to check if the craft is in the session:
+        if craft_id not in self.craft:
+            #if not add the craft to the cart
+            #the key is the craft id
+            self.cart[craft_id]={'quantity':0,'price':str(craft.craft_price)}
+
+        if update_quantity:
+            self.cart[craft_id]['quantity']=quantity
+        else:
+            self.cart[craft_id]['quantity']=+quantity
+
+        self.save()
+
+     #this method saves the changes to the cart
+     def save(self):
+         #update the session
+         self.session[settings.CART_SESSION_ID]=self.cart
+         #mark it as modified so that django can save it
+         self.session.modified=True
