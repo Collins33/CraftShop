@@ -19,9 +19,14 @@ def cart_add(request,craft_id):
         cart.add(craft=craft,quantity=cd['quantity'],update_quantity=cd['update'])
     return redirect('cart:cart_detail')
 
-
+#remove from cart
 def cart_remove(request,craft_id):
     cart=Cart(session)
     craft=get_object_or_404(Craft,id=craft_id)
     cart.remove(craft)
     return redirect('cart:cart_detail')
+
+
+def cart_detail(request):
+    cart=Cart(request)
+    return render(request,'detail.html',{"cart":cart})
