@@ -70,4 +70,9 @@ class Craft(object):
 
     #calculate the total cost of items in the cart
     def get_total_price(self):
-        return sum(Decimal(item['price']) *item['quantity'] for item in self.cart.values())   
+        return sum(Decimal(item['price']) *item['quantity'] for item in self.cart.values())
+
+    #clear the cart from the session
+    def clear(self):
+        del self.session[settings.CART_SESSION_ID]
+        self.session.modified=True
