@@ -37,3 +37,13 @@ class Craft(object):
          self.session[settings.CART_SESSION_ID]=self.cart
          #mark it as modified so that django can save it
          self.session.modified=True
+
+
+    #remove from the cart
+    def remove(self,craft):
+        #get the craft id
+        craft_id=str(craft.id)
+        if craft_id in self.cart:
+            del self.cart[craft_id]
+            #update the session after deleting
+            self.save()
