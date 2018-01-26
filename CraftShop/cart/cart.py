@@ -47,3 +47,19 @@ class Craft(object):
             del self.cart[craft_id]
             #update the session after deleting
             self.save()
+
+    #iterate over items in the cart and get them from the database
+    def __iter__(self):
+        craft_ids=self.cart.keys()
+
+        #get crafts from the database
+        crafts=Craft.objects.filter(id__in=craft_ids)
+        #add them to the cart
+        for craft in crafts:
+            self.cart[str(craft.id)]['craft']=craft
+
+        #iterate over the items in the cart
+        for item in self.cart.values():
+            item['price']=Decimal(item['price'])
+            item['total_price']=item['price'] * item['quantity']
+            yield item
