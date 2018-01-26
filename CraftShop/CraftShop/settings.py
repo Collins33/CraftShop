@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'craft.apps.CraftConfig',
     'bootstrap3',
-    'tinymce'
+    'tinymce',
+    'cart.apps.CartConfig'
 ]
 
 MIDDLEWARE = [
