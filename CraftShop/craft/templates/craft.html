@@ -81,7 +81,12 @@ h3{
     </div>
     <div>
       <h1 class="text-center">PURCHASE ITEM</h1>
-      <button class="btn btn-alert">PURCHASE ART</button>
+
+      <form action="{%url "cart_add" craft.id%}" method="post">
+        {{form}}
+        {% csrf_token %}
+        <input type="submit" value="Add to cart" class="form-control">
+      </form>
     </div>
 
     {% block scripts %}

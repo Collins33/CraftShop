@@ -6,6 +6,8 @@ from .forms import NewsLetterForm,NewCraftForm
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from .email import sendEmail
 from django.contrib.auth.decorators import login_required
+from cart.forms import CartAddProductForm
+from cart.cart import Cart
 
 # Create your views here.
 def welcome(request):
@@ -45,12 +47,15 @@ def search_result(request):
 
 
 def craft(request,craft_id):
+    cart_form=CartAddProductForm()
     try:
         craft=Craft.objects.get(id=craft_id)
     except DoesNotExist:
         raise Http404()
 
-    return render(request,"craft.html",{"craft":craft})
+    return render(request,"craft.html",{"craft":craft,"form":cart_form})
+
+
 
 @login_required(login_url='/accounts/login/')
 def all_craft(request):
@@ -69,4 +74,4 @@ def new_craft(request):
             craft.save()
     else:
         form=NewCraftForm()
-    return render(request,"newCraft.html",{"form":form})    
+    return render(request,"newCraft.html",{"form":form})
