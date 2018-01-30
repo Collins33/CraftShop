@@ -3,7 +3,7 @@ from django.conf import settings
 from craft.models import Craft,categories
 
 #Create the cart class to manage the cart
-class Craft(object):
+class Cart(object):
     def __init__(self,request):
         #store current session
         self.session=request.session
@@ -32,7 +32,7 @@ class Craft(object):
         self.save()
 
      #this method saves the changes to the cart
-     def save(self):
+    def save(self):
          #update the session
          self.session[settings.CART_SESSION_ID]=self.cart
          #mark it as modified so that django can save it
