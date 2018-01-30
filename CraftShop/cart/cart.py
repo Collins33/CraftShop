@@ -19,7 +19,7 @@ class Cart(object):
         #get the craft id
         craft_id=str(craft.id)
         #use craft id to check if the craft is in the session:
-        if craft_id not in self.craft:
+        if craft_id not in self.cart:
             #if not add the craft to the cart
             #the key is the craft id
             self.cart[craft_id]={'quantity':0,'price':str(craft.craft_price)}
