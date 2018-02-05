@@ -13,6 +13,7 @@
        <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
        <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
        <link href="https://fonts.googleapis.com/css?family=PT+Serif" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css?family=Rammetto+One" rel="stylesheet">
   {% endblock %}
 
 
@@ -45,6 +46,7 @@
     background: linear-gradient(to right, #267871, #136a8a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     margin-left:100px;
     margin-right:100px;
+    font-family: 'Rammetto One', cursive;
   }
 
   </style>
@@ -57,9 +59,15 @@
 
     </div> -->
     <div class="row welcome">
+      <div class="row">
     {% include "navbar.html" %}
+      </div>
+      <div class="row">
     {%include "searchBar.html" %}
+      </div>
+      <div class="row">
     <h1 class="intro text-center">CREATE ART | SELL ART | BUY ART</h1>
+      </div>
     </div>
 
 
@@ -111,7 +119,7 @@
 
 
 
-    <div class="row" style="margin-top:100px">
+    <div class="row" style="margin-top:100px;margin-left:10px;margin-right:10px;">
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
         <form action="{%url "welcome"%}" method="POST">
          {%csrf_token%}
@@ -120,6 +128,7 @@
         </form>
       </div>
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
       </div>
       <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4"></div>
     </div>
