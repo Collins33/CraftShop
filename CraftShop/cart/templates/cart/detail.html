@@ -22,9 +22,10 @@
       <h1 class="text-center">MY CART</h1>
     </div>
     {% for cart in cart%}
+    {% with product=item.craft%}
+   <h1>{{product.craft_name}}</h1>
 
-    {% empty %}
-
+    {% endwith %}
     {% endfor %}
 
   </div>
