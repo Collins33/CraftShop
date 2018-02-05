@@ -8,6 +8,7 @@ from .email import sendEmail
 from django.contrib.auth.decorators import login_required
 from cart.forms import CartAddProductForm
 from cart.cart import Cart
+from django.http import JsonResponse
 
 # Create your views here.
 
@@ -16,8 +17,25 @@ def welcome(request):
     date=dt.date.today()
     crafts=Craft.todayCraft()
     form=NewsLetterForm()
-    
+
     return render(request, 'index.html',{'date':date, 'crafts':crafts,"form":form})
+
+#the view function to process the news letter form
+def newLetter(request):
+    #get the name and email
+    name=request.POST.get('your_name')
+    email=request.POST.get('email')
+    #create NewsLetterSubscription object
+    recipient=NewsLetterSubscription(name=name,email=email)
+    #save the recipient
+    recipient.save()
+    #send welcome email
+    sendEmail(name,email)
+    #create data to render
+    data={"success":"you have successfully subscribed"}
+    return JsonResponse(data)
+
+
 
 
 
