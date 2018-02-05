@@ -10,24 +10,13 @@ from cart.forms import CartAddProductForm
 from cart.cart import Cart
 
 # Create your views here.
+
+# this view function will only display the form
 def welcome(request):
     date=dt.date.today()
     crafts=Craft.todayCraft()
-    if request.method == 'POST':
-        #CHECK IF REQUEST IS A POST REQUEST
-        form=NewsLetterForm(request.POST)
-        if form.is_valid():
-            name=form.cleaned_data['your_name']
-            email=form.cleaned_data['email']
-            recipient=NewsLetterSubscription(name=name,email=email)
-            recipient.save()
-            sendEmail(name,email)
-            HttpResponseRedirect('welcome')
-
-    else:
-        form=NewsLetterForm()
-
-
+    form=NewsLetterForm()
+    
     return render(request, 'index.html',{'date':date, 'crafts':crafts,"form":form})
 
 
