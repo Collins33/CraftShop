@@ -21,7 +21,7 @@ def welcome(request):
     return render(request, 'index.html',{'date':date, 'crafts':crafts,"form":form})
 
 #the view function to process the news letter form
-def newLetter(request):
+def newsLetter(request):
     #get the name and email
     name=request.POST.get('your_name')
     email=request.POST.get('email')

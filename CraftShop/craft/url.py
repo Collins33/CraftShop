@@ -9,7 +9,8 @@ url('^$',views.welcome,name="welcome"),
 url(r'^search/', views.search_result, name="search_result"),
 url(r'^craft/(\d+)',views.craft,name ='crafts'),
 url(r'^all/',views.all_craft,name="allCraft"),
-url(r'^new/crafts',views.new_craft,name="newCraft")
+url(r'^new/crafts',views.new_craft,name="newCraft"),
+url(r'^ajax/newsletter/$',views.newsLetter,name="newsletter")
 ]
 
 if settings.DEBUG:
