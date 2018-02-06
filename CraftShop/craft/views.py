@@ -53,6 +53,8 @@ def search_result(request):
 
 
 
+
+
 def craft(request,craft_id):
     cart_form=CartAddProductForm()
     try:

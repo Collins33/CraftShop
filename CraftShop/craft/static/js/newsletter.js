@@ -1,7 +1,7 @@
 $(document).ready(function(){
-  $('form').submit(function(event){
+  $('form.subscription').submit(function(event){
     event.preventDefault()
-    form=$('form')
+    form=$('form.subscription')
     //the ajax function
     $.ajax({
       'url':'/ajax/newsletter/',
@@ -15,5 +15,5 @@ $(document).ready(function(){
     $('#id_your_name').val('')
    $("#id_email").val('')
   })
-  
+
 })
