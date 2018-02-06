@@ -27,6 +27,11 @@ class categories(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering=('name',)
+        verbose_name= 'category'
+        verbose_name_plural= 'categories'
+
 
 class Craft(models.Model):
     craft_name=models.CharField(max_length=30)
