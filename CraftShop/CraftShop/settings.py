@@ -83,9 +83,9 @@ WSGI_APPLICATION = 'CraftShop.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'craftshop',
+        'NAME': 'crafty',
         'USER': 'collins',
-        'PASSWORD':'<leahlopez39',
+        'PASSWORD':'leahlopez39',
     }
 }
 
