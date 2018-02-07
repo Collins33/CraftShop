@@ -21,7 +21,7 @@ from tinymce.models import HTMLField
 
 
 
-class categories(models.Model):
+class Category(models.Model):
     name=models.CharField(max_length=30)
 
     def __str__(self):
@@ -29,19 +29,17 @@ class categories(models.Model):
 
     class Meta:
         ordering=('name',)
-        verbose_name= 'category'
-        verbose_name_plural= 'categories'
+
 
 
 class Craft(models.Model):
     craft_name=models.CharField(max_length=30)
     craft_price=models.DecimalField(max_digits=10,decimal_places=2)
     craft_description=HTMLField()
-    craft_slug=models.SlugField(max_length=200,unique=True)
-    craft_stock=models.PositiveIntegerField(default=True)
+    craft_stock=models.PositiveIntegerField(default=10)
     available = models.BooleanField(default=True)
     artist=models.ForeignKey(User,on_delete=models.CASCADE)
-    category=models.ManyToManyField(categories)
+    categories=models.ManyToManyField(Category)
     post_date = models.DateTimeField(auto_now_add=True)
     craft_image=models.ImageField(upload_to='crafts/',blank=True)
 

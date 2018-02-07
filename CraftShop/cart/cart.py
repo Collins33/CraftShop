@@ -1,6 +1,6 @@
 from decimal import Decimal
 from django.conf import settings
-from craft.models import Craft,categories
+from craft.models import Craft,Category
 
 #Create the cart class to manage the cart
 class Cart(object):

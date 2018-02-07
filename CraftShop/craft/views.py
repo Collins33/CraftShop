@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 import datetime as dt
-from .models import categories,Craft,NewsLetterSubscription
+from .models import Category,Craft,NewsLetterSubscription
 from .forms import NewsLetterForm,NewCraftForm
 from django.http import HttpResponse,Http404,HttpResponseRedirect
 from .email import sendEmail
@@ -17,8 +17,7 @@ def welcome(request):
     date=dt.date.today()
     crafts=Craft.todayCraft()
     form=NewsLetterForm()
-
-    return render(request, 'index.html',{'date':date, 'crafts':crafts,"form":form})
+    return render(request,'index.html',{'date':date,'crafts':crafts,"form":form})
 
 #the view function to process the news letter form
 def newsLetter(request):
